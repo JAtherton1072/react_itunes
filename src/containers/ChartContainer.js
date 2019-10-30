@@ -21,7 +21,7 @@ class ChartContainer extends React.Component {
 
     fetch(url)
     .then(res => res.json())
-    .then(songs => this.setState({ songs: songs }))
+    .then(data => this.setState({ songs: data.feed.entry }))
     .catch(err => console.error(err));
 
   }

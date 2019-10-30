@@ -1,11 +1,15 @@
 import React from "react";
 import Song from "./Song";
 
-const ChartList = ({songs}) => {
+const ChartList = (props) => {
 
-    const songNodes = songs.feed.entry.map(song => {
+    const songNodes = props.songs.map((song, index) => {
       return (
-        <Song author={ song.author } key={ song.id }>{ song.text }</Song>
+        <Song
+        title={ song["im:name"].label }
+        artist={ song["im:artist"].label }
+        chartPosition={ index + 1}
+        key={ index } />
       );
 
     });
